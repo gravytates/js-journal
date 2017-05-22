@@ -6,15 +6,13 @@ $(document).ready(function(){
     var title = $('#title').val();
     var body = $('#body').val();
     var newEntry = new Entry(title, body);
-    var words = newEntry.wordCount();
-    var vowels = newEntry.vowels();
-    var consonants = newEntry.consonants();
 
     $('#entry').append('<h4>' + newEntry.title + '</h4>');
+    $('#entry').append('<p> Entry teaser: <em>' + newEntry.getTeaser() + '</em></p>');
     $('#entry').append('<p>' + newEntry.body + '</p>');
-    $('#entry').append('<p>There are ' + words + ' words in this entry!</p>');
-    $('#entry').append('<p>There are ' + vowels + ' vowels in this entry!</p>');
-      $('#entry').append('<p>There are ' + consonants + ' consonants in this entry!</p>');
+    $('#entry').append('<p>There are ' + newEntry.wordCount() + ' words in this entry!</p>');
+    $('#entry').append('<p>with ' + newEntry.vowels() + ' vowels,</p>');
+      $('#entry').append('<p>and ' + newEntry.consonants() + ' consonants!</p>');
   });
 
 });
